@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picaflor Info - Reception Digitale</title>
+    <style>
+        :root { 
+            --primary: #008080; 
+            --bg: #f4f7f7; 
+            --white: #ffffff; 
+            --text: #2c3e50;
+            --accent: #e67e22;
+        }
+
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background: var(--bg); 
+            margin: 0; 
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--white);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+        }
+
+        .lang-bar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            background: #e0f2f2;
+        }
+
+        .lang-btn {
+            font-size: 24px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            background: none;
+            border-radius: 8px;
+            padding: 5px;
+            transition: 0.2s;
+        }
+        .lang-btn.active {
+            background: var(--white);
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .content {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px 100px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+        }
+        .info-item b {
+            display: block;
+            color: var(--text);
+            font-size: 1.1em;
+        }
+        .info-item span {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            margin-top: 40px;
+            text-transform: uppercase;
+        }
+
+        /* Responsive per tabelle/liste */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        [data-lang] { display: none; }
+        [data-lang].active-lang { display: block; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <!-- Logo Colibrì SVG -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#8e44ad;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#3498db;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2ecc71;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#e67e22;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path d="M100,75 C140,15 190,45 170,80 C150,95 125,90 100,75 Z" fill="url(#g1)" />
+            <path d="M45,100 C75,65 115,85 105,125 C100,150 75,135 45,100 Z" fill="url(#g2)" />
+            <path d="M48,97 L10,93" stroke="#2c3e50" stroke-width="3" stroke-linecap="round" />
+            <circle cx="60" cy="92" r="8" fill="#2ecc71" />
+            <circle cx="58" cy="91" r="2" fill="black" />
+        </svg>
+    </div>
+    <h1 style="margin:0; font-size: 20px; color: var(--primary);">PICAFLOR INFO</h1>
+</header>
+
+<div class="lang-bar">
+    <button class="lang-btn active" onclick="changeLang('it')">🇮🇹</button>
+    <button class="lang-btn" onclick="changeLang('en')">🇬🇧</button>
+    <button class="lang-btn" onclick="changeLang('fr')">🇫🇷</button>
+    <button class="lang-btn" onclick="changeLang('zh')">🇨🇳</button>
+    <button class="lang-btn" onclick="changeLang('ar')">🇸🇦</button>
+</div>
+
+<div class="content">
+    <!-- SEZIONE ITALIANO -->
+    <div data-lang="it" class="active-lang">
+        <div class="card">
+            <h3>🍴 Dove Mangiare</h3>
+            <div class="info-item"><b>Buatta Caffetteria</b><span>via Masolino da Panicale 12</span></div>
+            <div class="info-item"><b>Gennaro Rapido (Pizza)</b><span>via Bartolini 36</span></div>
+            <div class="info-item"><b>Wamiya Sushi</b><span>viale Certosa 42</span></div>
+            <div class="info-item"><b>Mosto Generoso (Hamburger)</b><span>via Monte Generoso 5</span></div>
+            <div class="info-item"><b>Il Faraone (Ristorante)</b><span>via Masolino da Panicale 13</span></div>
+        </div>
+        <div class="card">
+            <h3>🛒 Servizi e Spesa</h3>
+            <div class="info-item"><b>Lidl Supermercato</b><span>via Masolino da Panicale 7</span></div>
+            <div class="info-item"><b>Ipercoop (Portello)</b><span>via Grosotto (C.C. Portello)</span></div>
+            <div class="info-item"><b>Farmacia Fusco</b><span>via Bodoni 19 (Tel: 0233002831)</span></div>
+        </div>
+        <div class="card">
+            <h3>🚌 Mezzi Pubblici</h3>
+            <div class="info-item"><b>Tram 19</b><span>via Masolino (Dir: Castelli / Lambrate)</span></div>
+            <div class="info-item"><b>Tram 1 / 14</b><span>viale Certosa (Dir: Sacco / Cusani)</span></div>
+            <div class="info-item"><b>Bus 57 / 48</b><span>via Bodoni (Dir: Cairoli / Lotto)</span></div>
+        </div>
+        <div class="card">
+            <h3>🏠 Regole della Casa</h3>
+            <p>• <b>Check-out:</b> entro le ore 10:00.<br>
+               • <b>Silenzio:</b> dalle ore 22:00 alle 08:00.<br>
+               • <b>Area Comune:</b> Bollitori e microonde a disposizione.<br>
+               • <b>Parcheggio:</b> Gratuito nelle vie limitrofe.</p>
+        </div>
+    </div>
+
+    <!-- SEZIONE INGLESE -->
+    <div data-lang="en">
+        <div class="card">
+            <h3>🍴 Food & Drinks</h3>
+            <div class="info-item"><b>Buatta Cafe</b><span>via Masolino da Panicale 12</span></div>
+            <div class="info-item"><b>Gennaro Rapido (Pizza)</b><span>via Bartolini 36</span></div>
+            <div class="info-item"><b>Mosto Generoso (Burgers)</b><span>via Monte Generoso 5</span></div>
+        </div>
+        <div class="card">
+            <h3>🚌 Transportation</h3>
+            <div class="info-item"><b>Tram 19</b><span>via Masolino (To: Castelli / Lambrate)</span></div>
+            <div class="info-item"><b>Tram 1 / 14</b><span>viale Certosa (To: Sacco / Cusani)</span></div>
+        </div>
+        <div class="card">
+            <h3>🏠 House Rules</h3>
+            <p>• <b>Check-out:</b> by 10:00 AM.<br>
+               • <b>Quiet hours:</b> 10:00 PM to 08:00 AM.<br>
+               • <b>Parking:</b> Free in the surrounding streets.</p>
+        </div>
+    </div>
+
+    <!-- SEZIONE FRANCESE -->
+    <div data-lang="fr">
+        <div class="card">
+            <h3>🍴 Où Manger</h3>
+            <div class="info-item"><b>Buatta Café</b><span>via Masolino da Panicale 12</span></div>
+            <div class="info-item"><b>Gennaro Rapido (Pizza)</b><span>via Bartolini 36</span></div>
+        </div>
+        <div class="card">
+            <h3>🏠 Règles</h3>
+            <p>• <b>Départ:</b> avant 10h00.<br>
+               • <b>Silence:</b> de 22h00 à 08h00.<br>
+               • <b>Parking:</b> Gratuit dans le quartier.</p>
+        </div>
+    </div>
+
+    <!-- SEZIONE CINESE -->
+    <div data-lang="zh">
+        <div class="card">
+            <h3>🍴 饮食</h3>
+            <div class="info-item"><b>Buatta 咖啡馆</b><span>via Masolino da Panicale 12</span></div>
+            <div class="info-item"><b>Gennaro Rapido (比萨)</b><span>via Bartolini 36</span></div>
+        </div>
+        <div class="card">
+            <h3>🏠 客房规则</h3>
+            <p>• <b>退房:</b> 上午 10:00 前。<br>
+               • <b>安静时间:</b> 晚上 10:00 至早上 08:00。<br>
+               • <b>停车:</b> 附近街道免费停车。</p>
+        </div>
+    </div>
+
+    <!-- SEZIONE ARABO -->
+    <div data-lang="ar" style="direction: rtl; text-align: right;">
+        <div class="card">
+            <h3>🍴 الطعام والشراب</h3>
+            <div class="info-item"><b>Buatta مقهى</b><span>شارع Masolino 12</span></div>
+            <div class="info-item"><b>Gennaro Rapido (بيتزا)</b><span>شارع Bartolini 36</span></div>
+        </div>
+        <div class="card">
+            <h3>🏠 قواعد المنزل</h3>
+            <p>• <b>المغادرة:</b> قبل الساعة 10:00 صباحاً.<br>
+               • <b>الهدوء:</b> من 10:00 مساءً حتى 08:00 صباحاً.<br>
+               • <b>المواقف:</b> مجانية في الشوارع المجاورة.</p>
+        </div>
+    </div>
+
+    <div class="footer-note">Picaflor Foresteria Lombarda - Milano</div>
+</div>
+
+<script>
+    function changeLang(lang) {
+        // Aggiorna bottoni
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.innerText.includes(getFlag(lang))) btn.classList.add('active');
+        });
+
+        // Aggiorna contenuti
+        document.querySelectorAll('[data-lang]').forEach(content => {
+            content.classList.remove('active-lang');
+            if(content.getAttribute('data-lang') === lang) content.classList.add('active-lang');
+        });
+    }
+
+    function getFlag(lang) {
+        const flags = { it: '🇮🇹', en: '🇬🇧', fr: '🇫🇷', zh: '🇨🇳', ar: '🇸🇦' };
+        return flags[lang];
+    }
+</script>
+
+</body>
+</html>
